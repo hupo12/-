@@ -1,0 +1,51 @@
+/* 列表部分 */
+.cellss{
+    background-color: #fff;
+}
+.cellss .item{
+    display: flex;
+    align-items: flex-start;
+    border-bottom:1rpx solid #eee;
+}
+.cellss .item image{
+    width: 160rpx;
+    height: 160rpx;
+    margin:20rpx;
+}
+.cellss .item .meta{
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    padding:10rpx 0;
+    font-size:30rpx;
+}
+.cellss .item .meta .name{
+    color:#234;
+    font-size:30rpx;
+    font-weight: 700;
+}
+
+/* 搜索栏部分 */
+.search{
+padding:20rpx;
+background-color: #fff;
+display: flex;
+}
+.search input{
+    width: 95%;
+    height: 20rpx;
+    border:1rpx solid #ccc;
+    padding-left: 10rpx
+}
+.search icon{
+    margin-left: 10rpx;
+    margin-top: 10rpx;
+}
+
+/* 加载更多 */
+.loadmore{
+    text-align: center;
+    font-size: 40rpx;
+}
+
+

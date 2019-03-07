@@ -1,0 +1,44 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/message/message",
+    "pages/profile/profile",
+    "pages/list/list",
+    "pages/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "玩嗨宝",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false,
+    "backgroundColor": "#eee",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color":"#999",
+    "selectedColor":"#444",
+    "backgroundColor":"#fff",
+    "borderStyle":"black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "tabs/home-active.png",
+        "iconPath": "tabs/home-active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "selectedIconPath": "tabs/message-active.png",
+        "iconPath": "tabs/message-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "selectedIconPath": "tabs/profile-active.png",
+        "iconPath": "tabs/profile-active.png"
+      }
+    ]
+  }
+}

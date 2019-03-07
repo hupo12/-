@@ -1,0 +1,32 @@
+.detailContent{
+    padding:15rpx;
+    display:flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+.detailContent .name{
+    font-size: 40rpx;
+    font-weight: 700;
+}
+.comments{
+    padding:15rpx;
+    margin-top: 20rpx;
+}
+.comments .item{
+    margin-top: 30rpx;
+    background-color: #fff;
+}
+.item .addTime{
+   float:right;
+}
+.item .commentContent{
+    margin-top: 20rpx;
+}
+.comments .item .images image{
+    width: 110rpx;
+    height: 110rpx;
+    margin:10rpx;
+}
+
+
+

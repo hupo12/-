@@ -1,0 +1,36 @@
+<!-- 轮播图 -->
+<swiper class="detail">
+   <swiper-item wx:for="{{shops.images}}" wx:key="id">
+      
+      <image src="{{item}}" mode="aspectFill" bindtap="previewTopImg" data-src="{{item}}" />
+      
+   </swiper-item>
+</swiper>
+<!-- 店铺信息 -->
+<view class="detailContent">
+   <text class="name">{{shops.name}}</text>
+   <text class="phone">电话:{{shops.phone}}</text>
+   <text class="address">地址:{{shops.address}}</text>
+   <text class="time">营业时间:{{shops.businessHours}}</text>
+</view>
+<!-- 评论部分 -->
+<view class="comments">
+   <view class="item" wx:for="{{shops.comments}}" wx:key="id">
+     <text class="userName">{{item.name}}</text>
+     <text class="addTime">{{item.date}}</text>
+     <view class="commentContent">{{item.content}}</view>
+     <view class="images">
+      <image wx:for="{{item.images}}" wx:key="*this" src="{{util.size(item)}}" 
+      bindtap="previewCommentImg"  data-src="{{util.size(item)}}"/>
+    </view>
+   </view>
+</view>
+
+<!-- 定义一个页面内部的行内的函数,这种里面不支持es6 它起到了一个类似于过滤器的功能-->
+<wxs module="util">
+   module.exports={
+      size:function(input){
+         return input.replace('w.h','100.100')
+      }
+   }
+</wxs>
