@@ -1,0 +1,16 @@
+<view class="search-all">
+    <!-- 输入关键词之前 -->
+    <label class="topSearch" bindtap="showSearchHandle" hidden="{{searchShowed}}">
+        <input type="text" placeholder="搜索1"/>
+        <icon class="icon-search" type="search" size="14" />
+    </label>
+    <!-- 输入关键词之后 -->
+    <view class="bottomSearch" wx:if="{{searchStatus}}">
+        <input type="text" placeholder="搜索2" bindconfirm="searchHandle" focus="{{focusStatus}}" value="{{searchText}}" bindinput="searchChangeHandle" />
+        <icon class="icoSearch" type="search" size="14" />
+        <view class="cancel" bindtap="cancelInput">取消</view>
+        <view class="clear" wx:if="{{searchText}}" bindtap="clearContent">
+            <icon type="clear" size="14" />
+        </view>
+    </view>
+</view>

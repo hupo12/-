@@ -10,7 +10,9 @@ Page({
     category:null,
     pageIndex:0,
     pageSize:20,
-    hasMore:true
+    hasMore:true,
+    searchStatus:false,
+    focusStatus:true,
   },
   
   //封装一个函数 加载下一页数据
@@ -18,8 +20,10 @@ Page({
     //每次加载前先判断如果hasMore为false说明数据已经加载完成,那么就不能再加载了
     if(!this.data.hasMore) return
     //解构对象
-    let {pageIndex,pageSize}=this.data
+    let {pageIndex,pageSize,searchText}=this.data
     const params={_page:++pageIndex,_limit:pageSize}
+    // 如果有关键字,那么赋值给params对象中的q属性
+    if(searchText) params.q=searchText
     return fetch(`/categories/${this.data.category.id}/shops`,params)
     .then(res=>{
       //每次发送请求时的请求头中有X-Total-Count 保存的是数据的总条数
@@ -51,9 +55,6 @@ Page({
         //_page是请求的第几页,_limit是规定每页多少条数据
         this.loadMore();
         })
-    .then(res=>{
-        this.setData({shops:res.data})
-     })
   },
 
   /**
@@ -61,14 +62,12 @@ Page({
    */
   onReady: function () {
     //通过判断这个名字是否存在再设置页面标题
-   if(this.data.category.name) {
+   if(this.data.category) {
     wx.setNavigationBarTitle({
       title:this.data.category.name
     })
    }
-
-  },
-  
+  }, 
   /**
    * 页面相关事件处理函数--监听用户下拉刷新
    */
@@ -81,7 +80,6 @@ Page({
       wx.stopPullDownRefresh() 
     })
   },
-
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -89,7 +87,28 @@ Page({
      //当数据被上拉到页面底部时,在这里加载下一页
      this.loadMore();
   },
-
+  //点击最上面那个搜索框1时时候
+  showSearchHandle(){
+     this.setData({searchShowed:true,searchStatus:true});
+  },
+  // 当点击 取消时,搜索框1显示,搜索框2隐藏,搜索框2内的内容清空
+  cancelInput(){
+    this.setData({searchShowed:false,searchStatus:false,searchText:''});
+  },
+  // 当输入关键词时,将输入的字赋值给searchText 显示到页面上
+  searchChangeHandle(e){
+    this.setData({searchText:e.detail.value});
+  },
+  //当点击input框内的clear按钮时,清除框内输入的内容
+  clearContent(){
+    console.log(123);
+    this.setData({searchText:''});
+  },
+  //当输入关键词输入回车后
+  searchHandle(){
+    this.setData({shops:[],pageIndex:0,hasMore:true});
+    this.loadMore();
+  },
   /**
    * 用户点击右上角分享
    */

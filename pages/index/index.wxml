@@ -11,9 +11,12 @@
   </navigator>
 </view>
 
+<view class="alllinks">
 <view class="links">
     <image src="../../images/link-01.png" />
 </view>
 <view class="links">
     <image src="../../images/link-02.png" />
 </view>
+</view>
+

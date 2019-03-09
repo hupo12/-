@@ -20,8 +20,8 @@
      <text class="addTime">{{item.date}}</text>
      <view class="commentContent">{{item.content}}</view>
      <view class="images">
-      <image wx:for="{{item.images}}" wx:key="*this" src="{{util.size(item)}}" 
-      bindtap="previewCommentImg"  data-src="{{util.size(item)}}"/>
+      <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this" src="{{util.size(img)}}" 
+      bindtap="previewCommentImg"  data-src="{{util.size(img)}}" data-images="{{item.images}}"/>
     </view>
    </view>
 </view>

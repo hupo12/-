@@ -1,8 +1,8 @@
-<view class="search">
+<!-- <view class="search">
    <input placeholder="搜索" />
    <icon type="search" size="15" bindtap="searchShops" />
-</view>
-
+</view> -->
+<include src="../../includes/search-bar.wxml" />
 <view class="cellss">
 <navigator class="item" wx:for="{{shops}}" wx:key="id" url="/pages/detail/detail?item={{item.id}}">
    <image src="{{item.images[0]}}" />
@@ -15,5 +15,5 @@
 </navigator>
 </view>
 
-<view wx:if="{{hasMore}}" class="loadmore loading">正在加载.....</view>
-<view wx:else class="loadmore">客官,到底了</view>
+<!-- <view wx:if="{{hasMore}}" class="loadmore loading">正在加载.....</view> -->
+<view wx:if="{{!hasMore}}" class="loadmore">亲,没有更多了</view>

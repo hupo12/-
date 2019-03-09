@@ -26,22 +26,58 @@
 }
 
 /* 搜索栏部分 */
-.search{
-padding:20rpx;
-background-color: #fff;
-display: flex;
+.search-all{
+    position: relative;
+    padding:0;
+    margin:0;
+    height: 80rpx;
+    padding:15rpx;
 }
-.search input{
+.search-all .topSearch{
+    position: absolute;
+    width: 100%;
+}
+.search-all .topSearch input{
     width: 95%;
-    height: 20rpx;
-    border:1rpx solid #ccc;
-    padding-left: 10rpx
+    height: 60rpx;
+    border:2rpx solid #ccc;
+    text-align: center;
+    border-radius: 15rpx;
+    background-color: #fff;
 }
-.search icon{
-    margin-left: 10rpx;
-    margin-top: 10rpx;
+.search-all .topSearch .icon-search{
+    position: absolute;
+    top:25%;
+    left:35%;
 }
-
+/* 获取焦点后的搜索框 */
+.search-all .bottomSearch{
+    display: flex;
+}
+.search-all .bottomSearch input{
+    height: 60rpx;
+    width: 80%;
+    border:2rpx solid #ccc;
+    border-radius: 15rpx;
+    background-color: #fff;
+    padding-left: 50rpx;
+}
+.search-all .bottomSearch .icoSearch{
+    position: absolute;
+    left:30rpx;
+    top:30%;
+}
+.search-all .bottomSearch .cancel{
+    margin-left: 15rpx;
+    color:#09bb07;
+}
+.search-all .bottomSearch .clear{
+   position: absolute;
+   width: 50rpx;
+   height: 50rpx;
+   right:15%;
+   top:20%;
+}
 /* 加载更多 */
 .loadmore{
     text-align: center;

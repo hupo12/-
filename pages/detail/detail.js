@@ -29,10 +29,10 @@ Page({
   //预览评论中的商品图片
   previewCommentImg(e){
     console.log(e)
-    // wx.previewImage({
-    //   current: e.target.dataset.src, // 当前显示图片的http链接
-    //   urls: this.data.every.images // 需要预览的图片http链接列表
-    // })
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: e.target.dataset.images.map(v => v.replace("w.h", "600.800")) // 需要预览的图片http链接列表
+    })
     
   },
   /**
